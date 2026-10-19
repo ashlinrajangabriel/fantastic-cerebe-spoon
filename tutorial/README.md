@@ -20,6 +20,7 @@ Hands-on guides distilled from production runbooks. No vendor secrets, no custom
 | 11 | [Large PRs](./11-large-prs-and-waves.md) | ~16 MB cap, wave strategy |
 | 12 | [Verification routes](./12-verification-routes.md) | `cerebe verify`, evidence |
 | 13 | [Findings playbook](./13-findings-playbook.md) | Triage, convergence, trackers |
+| — | [LinkedIn article (copy-paste)](./article.md) | Long post + short post blocks |
 
 ## Official docs
 

@@ -1,0 +1,6 @@
+reviews/
+runs.ndjson
+*.lock
+cache/
+plugins/bundled/
+cli-version

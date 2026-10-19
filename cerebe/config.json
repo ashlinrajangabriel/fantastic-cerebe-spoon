@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "critics": [],
+  "aggregation": {
+    "quorum": 0,
+    "blockingSeverities": [
+      "blocker",
+      "high"
+    ],
+    "blockOnMissingReview": false
+  },
+  "context": {
+    "guidanceFiles": [
+      "AGENTS.md",
+      "CLAUDE.md"
+    ],
+    "promptFragments": [],
+    "includeChangedFiles": false,
+    "maxChangedFileBytes": 100000,
+    "generatedFilePolicy": {
+      "mode": "compact"
+    }
+  },
+  "selfConsistency": {
+    "enabled": false
+  }
+}

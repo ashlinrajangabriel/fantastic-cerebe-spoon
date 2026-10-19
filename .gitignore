@@ -1,0 +1,16 @@
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
+# Cerebe local runtime (never commit)
+cerebe.local.yaml
+cerebe/reviews/
+cerebe/runs.ndjson
+cerebe/cache/
+cerebe/plugins/bundled/
+
+# Node (optional samples)
+node_modules/

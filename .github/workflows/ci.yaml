@@ -1,0 +1,50 @@
+# Validates the Cerebe Factory contract and runs a tiny test suite.
+#
+# IMPORTANT: Pull-request AI review is NOT this workflow.
+# Install the Cerebe Factory GitHub App so every PR gets the hosted
+# cerebe/critic check. See tutorial/04-github-app-and-branch-protection.md
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: npm test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm test
+
+  cerebe-doctor:
+    name: cerebe doctor
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Cerebe CLI (binaries only)
+        uses: cerebe-ai/cerebe/setup@v9.8.0
+
+      - name: Wire git hooks (ephemeral runner)
+        run: cerebe init
+
+      - name: Verify Factory contract
+        run: cerebe doctor
